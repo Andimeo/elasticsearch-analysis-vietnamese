@@ -33,7 +33,8 @@ import java.util.List;
 public class VietnameseAnalyzer extends StopwordAnalyzerBase {
 
     public static final CharArraySet VIETNAMESE_STOP_WORDS_SET;
-
+    private final static Version version = Version.LUCENE_47;
+    
     static {
         final List<String> stopWords = Arrays.asList(
                 "bị", "bởi", "cả", "các", "cái", "cần", "càng", "chỉ", "chiếc", "cho", "chứ", "chưa", "chuyện",
@@ -43,7 +44,7 @@ public class VietnameseAnalyzer extends StopwordAnalyzerBase {
                 "rằng", "rằng", "rất", "rất", "rồi", "sau", "sẽ", "so", "sự", "tại", "theo", "thì", "trên", "trước",
                 "từ", "từng", "và", "vẫn", "vào", "vậy", "vì", "việc", "với", "vừa"
         );
-        final CharArraySet stopSet = new CharArraySet(stopWords, false);
+        final CharArraySet stopSet = new CharArraySet(version, stopWords, false);
         VIETNAMESE_STOP_WORDS_SET = CharArraySet.unmodifiableSet(stopSet);
     }
 
@@ -76,7 +77,7 @@ public class VietnameseAnalyzer extends StopwordAnalyzerBase {
      * Builds an analyzer with the default stop words
      */
     public VietnameseAnalyzer(CharArraySet stopwords) {
-        super(stopwords);
+        super(version, stopwords);
     }
     /**
      * Builds an analyzer with the default stop words: {@link #getDefaultStopSet}.
@@ -100,8 +101,8 @@ public class VietnameseAnalyzer extends StopwordAnalyzerBase {
     @Override
     protected TokenStreamComponents createComponents(String fieldName, Reader reader) {
         final Tokenizer tokenizer = new VietnameseTokenizer(reader);
-        TokenStream tokenStream = new LowerCaseFilter(tokenizer);
-        tokenStream = new StopFilter(tokenStream, stopwords);
+        TokenStream tokenStream = new LowerCaseFilter(version, tokenizer);
+        tokenStream = new StopFilter(version, tokenStream, stopwords);
         return new TokenStreamComponents(tokenizer, tokenStream);
     }
 }
