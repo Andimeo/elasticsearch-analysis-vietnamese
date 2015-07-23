@@ -14,15 +14,51 @@
                 <exclude>org.elasticsearch:elasticsearch</exclude>
             </excludes>
         </dependencySet>
-        <dependencySet>
-            <outputDirectory>/</outputDirectory>
-            <useProjectArtifact>true</useProjectArtifact>
-            <useTransitiveFiltering>true</useTransitiveFiltering>
-            <includes>
-                <include>vn.hus:nlp-tokenizer</include>
-                <include>vn.hus:nlp-sd</include>
-                <include>commons-io:commons-io</include>
-            </includes>
-        </dependencySet>
     </dependencySets>
+    <files>
+	<file>
+	    <source>${project.basedir}/lib/vn.hus.nlp.sd-2.0.0.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+	<file>
+	    <source>${project.basedir}/lib/vn.hus.nlp.tagger-4.2.0.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+	<file>
+	    <source>${project.basedir}/lib/vn.hus.nlp.fsm-1.0.0.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+	<file>
+	    <source>${project.basedir}/lib/vn.hus.nlp.tokenizer-4.1.1.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+	<file>
+	    <source>${project.basedir}/lib/vn.hus.nlp.utils-1.0.0.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+	<file>
+	    <source>${project.basedir}/lib/junit.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+	<file>
+	    <source>${project.basedir}/lib/maxent-2.5.2.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+	<file>
+	    <source>${project.basedir}/lib/opennlp-tools-1.4.3.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+	<file>
+	    <source>${project.basedir}/lib/trove.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+	<file>
+	    <source>${project.basedir}/lib/commons-cli-1.2.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+	<file>
+	    <source>${project.basedir}/lib/commons-io-1.4.jar</source>
+	    <outputDirectory>/</outputDirectory>
+	</file>
+    </files>
 </assembly>
